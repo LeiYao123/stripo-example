@@ -10,7 +10,10 @@
         display: flex;
         justify-content: space-between;
       }
-
+      #undoButton,
+      #redoButton {
+        display: none;
+      }
       #stripoSettingsContainer {
         width: 400px;
         float: left;
@@ -56,7 +59,7 @@
         <button id="undoButton" class="control-button">Undo</button>
         <button id="redoButton" class="control-button">Redo</button>
         <button id="codeEditor" class="control-button">Code editor</button>
-        <span id="changeHistoryContainer">Last change: <a id="changeHistoryLink"></a></span>
+        <span id="changeHistoryContainer" style="display: none;">Last change: <a id="changeHistoryLink"></a></span>
       </div>
       <div>
         <button id="saveButton" class="control-button">Save</button>
@@ -141,8 +144,8 @@
             getAuthToken: function (callback) {
               request('POST', 'https://plugins.stripo.email/api/v1/auth',
                 JSON.stringify({
-                  pluginId: '5628562fb0ff42f1bb0a8248ddbd18a7' ||  'YOUR_PLUGIN_ID',
-                  secretKey: '7062941798e74f5b99506149da3974cf' || 'YOUR_SECRET_KEY'
+                  pluginId: '8a2c3b17728441e1b0699da32e6d802f',
+                  secretKey: '6c3412f92ee649ca98dfc6e934c7e0fd'
                 }),
                 function(data) {
                   callback(JSON.parse(data).token);
